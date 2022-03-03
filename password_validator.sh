@@ -86,6 +86,9 @@ script_name=$0
 if [[ $# -eq 1 ]]; then 
 	password=$1
 
+elif [[ $# -eq 2 && $1 -eq "-f" && -a $2 ]]; then
+        while read -r line ; do password=$line; done < $2
+
 else
         show_help $script_name
 fi
